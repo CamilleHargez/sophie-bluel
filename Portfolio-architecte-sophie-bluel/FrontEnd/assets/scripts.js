@@ -1,51 +1,54 @@
-let projets = [
-    {
-        "image": ".assets/images/abajour-tahina.png",
-        "figcaption": "Abajour Tahina"
-    },
-    {
-        "image": ".assets/images/appartement-paris-v.png",
-		"figcaption": "Appartement Paris V"
-    },
-    {
-        "image": ".assets/images/restaurant-sushisen-londres.png",
-        "figcaption": "Restaurant Sushisen - Londres"
-    },
-    {
-        "image": ".assets/images/la-balisiere.png",
-		"figcaption": "Villa “La Balisiere” - Port Louis"
-    },
-    {
-        "image": ".assets/images/structures-thermopolis.png",
-	    "figcaption": "Structures Thermopolis"
-    },
-    {
-        "image": ".assets/images/appartement-paris-x.png",
-		"figcaption": "Appartement Paris X"
-    },
-    {
-       "image": ".assets/images/le-coteau-cassis.png",
-		"figcaption": "Pavillon “Le coteau” - Cassis"
-    },
-    {
-        "image": ".assets/images/villa-ferneze.png", 
-		"figcaption": "Villa Ferneze - Isola d’Elba"
-    },
-    {
-        "image": ".assets/images/appartement-paris-xviii.png",
-		"figcaption": "Appartement Paris XVIII"
-    },
-    {
-        "image": ".assets/images/bar-lullaby-paris.png",
-		"figcaption": "Bar “Lullaby” - Paris"
-    },
-    {
-        "image": ".assets/images/hotel-first-arte-new-delhi.png", 
-		"figcaption": "Hotel First Arte - New Delhi"
-    }
-]
-console.log(projets)
+// function callApi() {
+    fetch("http://localhost:5678/api/works")
+    .then(response => response.json())
+    .then(data => {
+        let display = ""
+        data.map(index=> {            
+            display+= `
+                <figure class="${index.category.id}">
+                    <img src="${index.imageUrl}" alt="${index.title}">
+                    <figcaption>${index.title}</figcaption>
+			    </figure>
+            `
+        })
+        console.log(display)
+        document.querySelector(".gallery").innerHTML=display
+    })
+// }
 
-let filter = document.querySelector(".filter-items")
-console.log(filter)
+// function callApiFilter() {
+    fetch("http://localhost:5678/api/categories")
+    .then(response => response.json())
+    .then(data => {
+        let display = "<button class='0'>Tous</button>"
+        data.map(index=> {
+            display+= `
+                <button class="${index.id}">
+                    ${index.name}
+                </button>
+            `
+        })
+        console.log(display)
+        document.querySelector(".filter-items").innerHTML=display  
+        const filters = document.querySelectorAll("button")
+        filters.forEach(filter => {
+            
+            filter.addEventListener("click", (e)=> {
+                console.log("j'ai cliqué")
+                console.log(e)
+                console.log(e.target)
+                console.log(e.target.classList[0])
+            }
+            )  
+        })
+    })
+// }
+
+
+// callApi()
+// callApiFilter()
+
+
+
+
 
