@@ -20,7 +20,7 @@
     fetch("http://localhost:5678/api/categories")
     .then(response => response.json())
     .then(data => {
-        let display = "<button class='0'>Tous</button>"
+        let display = "<button class='tous'>Tous</button>"
         data.map(index=> {
             display+= `
                 <button class="${index.id}">
@@ -29,20 +29,41 @@
             `
         })
         console.log(display)
-        document.querySelector(".filter-items").innerHTML=display  
+        document.querySelector(".filter-items").innerHTML=display
+        document.querySelector(".tous").style.color=`red`
         const filters = document.querySelectorAll("button")
-        filters.forEach(filter => {
-            
+        
+        filters.forEach(filter => {    
             filter.addEventListener("click", (e)=> {
-                console.log("j'ai cliqué")
-                console.log(e)
-                console.log(e.target)
-                console.log(e.target.classList[0])
+                const figures = document.querySelectorAll("figure") 
+                const myButton = e.target.classList[0]
+
+                figures.forEach(figure => {
+                    figure.style.display = `none`
+                    const figureCategoryId = figure.classList[0]
+                
+                    if (myButton == figureCategoryId || myButton == 'tous') {
+                    figure.style.display = `block`
+                    }
+                })
+               
             }
             )  
         })
     })
 // }
+
+// button.style.background-color = #1D6154
+
+// input[type="submit"]{
+// 	font-family: 'Syne';
+// 	font-weight: 700;
+// 	color: white;
+// 	background-color: #1D6154;
+// 	margin : 2em auto ;
+// 	width: 180px;
+// 	text-align: center;
+// 	border-radius: 60px ;
 
 
 // callApi()
