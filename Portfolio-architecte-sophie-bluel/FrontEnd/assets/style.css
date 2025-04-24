@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	background-color: #FFFEF8;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -98,6 +99,19 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+.login {
+	color: black;
+	text-decoration: none;
+}
+
+.logout {
+	color: black;
+	text-decoration: none;
+	position: relative;
+    left: -23px;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -170,34 +184,34 @@ button {
 	width: 100%;
 
 }
-#contact {
+.form-section {
 	width: 50%;
 margin: auto;
 }
-#contact > * {
+.form-section > * {
 	text-align: center;
 
 }
-#contact h2{
+.form-section h2 {
 	margin-bottom: 20px;
 }
-#contact form {
+.form-section form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+.form-section input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+.form-section label {
 	margin: 2em 0 1em 0;
 }
-#contact textarea {
+.form-section textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -211,6 +225,14 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+.forgotPassword {
+	color: black;
+	display: flex;
+    justify-content: center;
+	font-weight: 500;
+	font-size: 14px;
 }
 
 footer nav ul {

@@ -10,7 +10,6 @@
 			    </figure>
             `
         })
-        console.log(display)
         document.querySelector(".gallery").innerHTML=display
     })
 
@@ -27,14 +26,15 @@
                 </button>
             `
         })
-        console.log(display)
+        
         document.querySelector(".filter-items").innerHTML=display
         const buttonList = document.querySelectorAll("button")
         
+
         buttonList.forEach(filter => {    
-            filter.addEventListener("click", (filter)=> {
+            filter.addEventListener("click", (event)=> {
                 const figures = document.querySelectorAll(".projects") 
-                const classListOfMyButton = filter.target.classList
+                const classListOfMyButton = event.target.classList
                 const firstClassOfCurrentButton = classListOfMyButton[0]
                 
                 if (!classListOfMyButton.contains('active')) {
@@ -59,7 +59,6 @@
             )  
         })
     })
-
 
 
 
