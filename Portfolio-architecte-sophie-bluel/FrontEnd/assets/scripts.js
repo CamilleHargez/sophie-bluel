@@ -1,4 +1,11 @@
-    fetch("http://localhost:5678/api/works")
+// Homepage
+document.querySelector(".editionMode").style.display = 'none'
+document.querySelector(".editButton").style.display = 'none'
+
+const logoutButton = document.querySelector(".logout")
+logoutButton.style.display = 'none'
+
+fetch("http://localhost:5678/api/works")
     .then(response => response.json())
     .then(data => {
         let display = ""
@@ -60,7 +67,21 @@
         })
     })
 
+// Homepage edit 
 
+ let token = localStorage.getItem("token")
+ console.log(token)
 
+if (token) {
+    document.querySelector(".login").style.display = 'none'
+    logoutButton.style = 'display'
+    document.querySelector(".filter-items").style.display = 'none'
+    document.querySelector(".editionMode").style = 'display'
+    document.querySelector(".editButton").style = 'display'
+}
+
+logoutButton.addEventListener("click", logout=>{
+    localStorage.removeItem("token")
+})
 
 
