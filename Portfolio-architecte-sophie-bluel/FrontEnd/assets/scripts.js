@@ -70,7 +70,6 @@ fetch("http://localhost:5678/api/works")
 // Homepage edit 
 
  let token = localStorage.getItem("token")
- console.log(token)
 
 if (token) {
     document.querySelector(".login").style.display = 'none'

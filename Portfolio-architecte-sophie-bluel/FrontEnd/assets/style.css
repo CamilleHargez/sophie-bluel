@@ -197,6 +197,18 @@ li:hover {
 	padding: 20px;
 }
 
+.fa-xmark {
+	display: flex;
+	justify-content: flex-end;
+}
+
+#titlemodal {
+	color: black;
+	font-weight: 400;
+	font-size: 26px;
+	text-align: center;
+	}
+
 .filter-items {
 	display: flex;
 	justify-content: center;
