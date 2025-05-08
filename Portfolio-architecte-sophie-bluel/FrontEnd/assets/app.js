@@ -3,27 +3,33 @@ const focusableSelector = 'button, a, input, textarea'
 let focusablesElements = []
 let previouslyFocusedElement = null
 
+const loadGalleryInModal = () => {
+    const container = modal.querySelector('.modal-gallery')
+    container.innerHTML = "Chargement..."
+
 fetch("http://localhost:5678/api/works")
     .then(response => response.json())
     .then(data => {
         let display = ""
         data.map(index=> {            
             display+= `
-                <figure class="${index.category.id} projects">
-                    <img src="${index.imageUrl}" alt="${index.title}">
-                    <figcaption>${index.title}</figcaption>
+                <figure class="${index.category.id} projects editables">
+                    <img class="editable-img" src="${index.imageUrl}" alt="${index.title}">
 			    </figure>
             `
         })
-        document.querySelector(".gallery").innerHTML=display
+        document.querySelector('.modal-gallery').innerHTML=display
     })
+    .catch(error => {
+        container.innerHTML = "Erreur lors du chargement."
+        console.error(error)
+    })
+}
 
 const openModal = function (e) {
     e.preventDefault()
     modal = document.querySelector("#modal1") //je crée target qui récupère le contenu de mon href
-    
     focusablesElements = Array.from(modal.querySelectorAll(focusableSelector))
-    modal.appendChild(".gallery")
     previouslyFocusedElement = document.querySelector(':focus')
     modal.style.display = null //de base le style est à none donc caché dans le html
     focusablesElements[0].focus()
@@ -32,6 +38,7 @@ const openModal = function (e) {
     modal.addEventListener('click', closeModal)
     modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
     modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
+    loadGalleryInModal()
 }
 
 const closeModal = function (e) {

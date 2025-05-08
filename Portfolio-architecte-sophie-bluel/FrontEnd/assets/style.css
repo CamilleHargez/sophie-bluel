@@ -188,10 +188,10 @@ li:hover {
 
 .modal-wrapper {
 	overflow: auto;
-	width: 43.75%;
+	width: 60%;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
-	height: 20.69%;
+	height: 60%;
 	background-color: rgba (255, 255, 255, 1);
 	border-radius: 10px;
 	padding: 20px;
@@ -207,7 +207,45 @@ li:hover {
 	font-weight: 400;
 	font-size: 26px;
 	text-align: center;
+	margin-bottom: 6%;
 	}
+
+.modal-gallery {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-right: 13%;
+	margin-left: 13%;
+}
+
+.separator {
+	color: #B3B3B3;
+	width: 70%;
+	margin-bottom: 5%;
+    margin-top: 8%;
+}
+
+.addPhoto {
+	display: flex;
+	justify-content: center;
+}
+
+.addPhotoButton {
+	background-color: #1D6154;
+	border: #B3B3B3;
+	color: #FFFFFF;
+	height: 36px;
+	margin-bottom: 4%;
+}
+
+.editables {
+	width: 20%;
+}
+
+.editable-img {
+	width: 100%;
+	margin: 10%;
+}
 
 .filter-items {
 	display: flex;
