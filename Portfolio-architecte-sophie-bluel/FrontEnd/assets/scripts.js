@@ -11,7 +11,7 @@ fetch("http://localhost:5678/api/works")
         let display = ""
         data.map(index=> {            
             display+= `
-                <figure class="${index.category.id} projects">
+                <figure class="${index.category.id} projects" data-id="${index.id}">
                     <img src="${index.imageUrl}" alt="${index.title}">
                     <figcaption>${index.title}</figcaption>
 			    </figure>

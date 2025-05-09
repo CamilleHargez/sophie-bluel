@@ -1,5 +1,5 @@
 let modal = null // je sauvegarde une variable modal qui sera à null par défaut, elle permettra de savoir quelle boite modale est ouverte actuellement
-const focusableSelector = 'button, a, input, textarea'
+const focusableSelector = 'i, a, input, textarea'
 let focusablesElements = []
 let previouslyFocusedElement = null
 
@@ -13,17 +13,45 @@ fetch("http://localhost:5678/api/works")
         let display = ""
         data.map(index=> {            
             display+= `
-                <figure class="${index.category.id} projects editables">
+                <figure class="${index.category.id} projects editables" data-id="${index.id}">
                     <img class="editable-img" src="${index.imageUrl}" alt="${index.title}">
+                    <div class="trashButton" onclick="removeWork(${index.id})"><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></div>
 			    </figure>
             `
+
         })
         document.querySelector('.modal-gallery').innerHTML=display
+        
     })
     .catch(error => {
         container.innerHTML = "Erreur lors du chargement."
         console.error(error)
     })
+}
+
+const removeWork = function (idToRemove) {
+    console.log(idToRemove)
+const token = localStorage.getItem("token")
+console.log(token)
+
+    fetch('http://localhost:5678/api/works/{idToRemove}', {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}`}
+})
+
+.then(response => {
+    console.log(response.status)
+    if (response.status === 200 || response.status === 204) {
+        console.log("Item Deleted")
+        document.querySelector(`figure.editables[data-id="${idToRemove}"]`).remove()
+        const galleryFigure = window.document.querySelector(`.gallery figure.projects[data-id="${idToRemove}"]`)
+        console.log(galleryFigure)
+            if (galleryFigure) {
+                galleryFigure.remove()
+            }
+    }
+
+})
 }
 
 const openModal = function (e) {
@@ -40,6 +68,7 @@ const openModal = function (e) {
     modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
     loadGalleryInModal()
 }
+
 
 const closeModal = function (e) {
     if (modal === null) return
