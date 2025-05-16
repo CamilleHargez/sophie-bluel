@@ -3,6 +3,14 @@ const focusableSelector = 'i, a, input, textarea'
 let focusablesElements = []
 let previouslyFocusedElement = null
 
+let modalPage1 = document.querySelector('.page1')
+let modalPage2 = document.querySelector('.page2')
+
+modalPage2.style.display = 'none'
+
+const form = document.querySelector("#addPhotoForm")
+// const fileInput = document.getElementById("addImg")
+
 const loadGalleryInModal = () => {
     const container = modal.querySelector('.modal-gallery')
     container.innerHTML = "Chargement..."
@@ -57,17 +65,41 @@ console.log(token)
 const openModal = function (e) {
     e.preventDefault()
     modal = document.querySelector("#modal1") //je crée target qui récupère le contenu de mon href
-    // focusablesElements = Array.from(modal.querySelectorAll(focusableSelector))
-    // previouslyFocusedElement = document.querySelector(':focus')
+    focusablesElements = Array.from(modal.querySelectorAll(focusableSelector))
+    previouslyFocusedElement = document.querySelector(':focus')
     modal.style.display = null //de base le style est à none donc caché dans le html
-    // focusablesElements[0].focus()
-    // modal.removeAttribute('aria-hidden') 
-    // modal.setAttribute('aria-modal', 'true')
-    // modal.addEventListener('click', closeModal)
-    // modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
-    // modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
+    focusablesElements[0].focus()
+    modal.removeAttribute('aria-hidden') 
+    modal.setAttribute('aria-modal', 'true')
+    modal.addEventListener('click', closeModal)
+    modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
+    modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
     loadGalleryInModal()
-    modal.querySelector('#marcel').addEventListener('click', console.log("salut"))
+    modal.querySelector('.addPhoto').addEventListener('click', () => {
+        modalPage1.style.display = 'none'
+        modalPage2.style = 'display'
+    })
+    modal.querySelector('.go-back').addEventListener('click', () => {
+        modalPage1.style = 'display'
+        modalPage2.style.display = 'none'
+    })
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const formData = new FormData(form) //récupère tous les champs du formulaire
+        for (const [key, value] of formData.entries()) {
+            console.log(key, value);
+          }
+        fetch("http://localhost:5678/api/works", {
+           method: 'post', 
+           body: formData,
+           headers: { Authorization: `Bearer ${token}`}
+        })
+            
+        .then(response => console.log(response.json())) 
+        
+        
+    })
+
 }
 
 
@@ -116,3 +148,6 @@ window.addEventListener('keydown', function (e){
         focusInModal(e)
     }
 })
+
+
+

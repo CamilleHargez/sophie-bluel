@@ -22,7 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	background-color: #FFFEF8;
+	background-color: white;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -202,7 +202,7 @@ li:hover {
 	justify-content: flex-end;
 }
 
-#titlemodal {
+#titlemodal, #titlemodal2 {
 	color: black;
 	font-weight: 400;
 	font-size: 26px;
@@ -264,6 +264,64 @@ li:hover {
 	font-size: 14px;
 }
 
+.go-back {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.modalFormSection {
+	width: 80%;
+	margin: auto;
+}
+
+.formModalPage2 {
+	text-align: left;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#image {
+	display: none;
+}
+
+#textDropFile {
+	background-color: transparent;
+	font-size: 10px;
+}
+
+.imgicon {
+	font-size: 76px;
+    margin: 20px;
+}
+
+.addImg {
+	width: 41%;
+	height: 36px;
+	line-height: 36px;
+	border: none;
+	border-radius: 50px;
+	background-color: rgba(203, 214, 220, 1);
+	text-align: center;
+}
+
+#titleNewPhoto, #categoryNewPhoto {
+	font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form-section div {
+	background-color: rgba(232, 241, 246, 1);
+	height: 169px;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	padding: 15px;
+  }
+
 .editables {
 	width: 17%;
 	position: relative;
@@ -319,7 +377,7 @@ button {
 }
 .form-section {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 .form-section > * {
 	text-align: center;
@@ -335,12 +393,13 @@ margin: auto;
 	flex-direction: column;
 }
 
-.form-section input {
+.form-section input, .form-section select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 .form-section label {
 	margin: 2em 0 1em 0;
 }
