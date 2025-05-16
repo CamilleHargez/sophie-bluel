@@ -34,7 +34,7 @@ const removeWork = function (idToRemove) {
 const token = localStorage.getItem("token")
 console.log(token)
 
-    fetch('http://localhost:5678/api/works/{idToRemove}', {
+    fetch(`http://localhost:5678/api/works/${idToRemove}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}`}
 })
@@ -57,16 +57,17 @@ console.log(token)
 const openModal = function (e) {
     e.preventDefault()
     modal = document.querySelector("#modal1") //je crée target qui récupère le contenu de mon href
-    focusablesElements = Array.from(modal.querySelectorAll(focusableSelector))
-    previouslyFocusedElement = document.querySelector(':focus')
+    // focusablesElements = Array.from(modal.querySelectorAll(focusableSelector))
+    // previouslyFocusedElement = document.querySelector(':focus')
     modal.style.display = null //de base le style est à none donc caché dans le html
-    focusablesElements[0].focus()
-    modal.removeAttribute('aria-hidden') 
-    modal.setAttribute('aria-modal', 'true')
-    modal.addEventListener('click', closeModal)
-    modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
-    modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
+    // focusablesElements[0].focus()
+    // modal.removeAttribute('aria-hidden') 
+    // modal.setAttribute('aria-modal', 'true')
+    // modal.addEventListener('click', closeModal)
+    // modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
+    // modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
     loadGalleryInModal()
+    modal.querySelector('#marcel').addEventListener('click', console.log("salut"))
 }
 
 
