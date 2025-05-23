@@ -20,12 +20,10 @@ fetch("http://localhost:5678/api/works")
         document.querySelector(".gallery").innerHTML=display
     })
 
-
-
     fetch("http://localhost:5678/api/categories")
     .then(response => response.json())
     .then(data => {
-        let display = "<button class='tous'>Tous</button>"
+        let display = "<button class='tous active'>Tous</button>"
         data.map(index=> {
             display+= `
                 <button class="${index.id}">
@@ -33,12 +31,13 @@ fetch("http://localhost:5678/api/works")
                 </button>
             `
         })
+
         
         document.querySelector(".filter-items").innerHTML=display
         const buttonList = document.querySelectorAll("button")
         
 
-        buttonList.forEach(filter => {    
+        buttonList.forEach(filter => {   
             filter.addEventListener("click", (event)=> {
                 const figures = document.querySelectorAll(".projects") 
                 const classListOfMyButton = event.target.classList

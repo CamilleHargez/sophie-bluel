@@ -303,6 +303,12 @@ li:hover {
 	border-radius: 50px;
 	background-color: rgba(203, 214, 220, 1);
 	text-align: center;
+	color: rgba(48, 102, 133, 1);
+}
+
+.previewImg {
+	height: 199px;
+	width: auto;
 }
 
 #titleNewPhoto, #categoryNewPhoto {

@@ -79,10 +79,14 @@ const openModal = function (e) {
         modalPage1.style.display = 'none'
         modalPage2.style = 'display'
     })
-    modal.querySelector('.go-back').addEventListener('click', () => {
+    function goBack() {
         modalPage1.style = 'display'
         modalPage2.style.display = 'none'
-    })
+    }
+    modal.querySelector('.go-back').addEventListener('click', () => {
+        goBack()
+        })
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         const formData = new FormData(form) //récupère tous les champs du formulaire
@@ -94,12 +98,34 @@ const openModal = function (e) {
            body: formData,
            headers: { Authorization: `Bearer ${token}`}
         })
-            
-        .then(response => console.log(response.json())) 
-        
-        
+    })
+    form.addEventListener('submit', closeModal)
+    form.addEventListener('submit', (e) => {
+        location.reload()
     })
 
+    function resetModalForm() {
+        closeModal()
+        document.getElementById("addPhotoForm").reset()
+        const preview = document.querySelector(".previewImg");
+            if (preview) {
+                preview.remove()
+                document.querySelector(".imgicon").style.display = "block"
+                document.querySelector(".addImg").style.display = "block"
+                document.querySelector("#textDropFile").style.display = "block"
+            }
+    }
+
+    modal.querySelector('.js-modal-close').addEventListener('click', (e) => { 
+        resetModalForm()
+        goBack()
+    })
+
+    modal.addEventListener('click', (e) => { 
+        resetModalForm()
+        goBack()
+    })
+        
 }
 
 
@@ -149,5 +175,43 @@ window.addEventListener('keydown', function (e){
     }
 })
 
+
+const imageInput = document.getElementById('image')
+// const formButton = document.getElementById("formButton")
+// const titleInput = document.getElementById("title")
+// const categorySelect = document.getElementById("category")
+
+imageInput.addEventListener('change', function(e) {
+    const dropZone = document.getElementById('drop-zone')
+    const previewImg = document.createElement('img')
+    previewImg.classList.add("previewImg")
+    previewImg.src = URL.createObjectURL(e.target.files[0])
+    dropZone.appendChild(previewImg)
+    
+    if (previewImg) {
+        document.querySelector(".imgicon").style.display = 'none'
+        document.querySelector(".addImg").style.display = 'none'
+        document.getElementById("textDropFile").style.display = 'none'
+    }
+}) 
+
+// function checkFormValidity() {
+//     const imageOk = imageInput.files && imageInput.files.length > 0
+//     const titleOk = titleInput.value !== ""
+//     const categoryOk = categorySelect.value !== "" 
+
+//     if (imageOk && titleOk && categoryOk) {
+//         e.preventDefault()
+//         console.log("bouton vert")
+//         formButton.style.backgroundColor = "rgba(29, 97, 84, 1)"
+//         formButton.disabled = false
+//     } else {
+//         e.preventDefault()
+//         console.log("bouton gris")
+//         formButton.style.backgroundColor = "rgba(167, 167, 167, 1)"
+//         formButton.disabled = true
+//     }
+
+// }
 
 
