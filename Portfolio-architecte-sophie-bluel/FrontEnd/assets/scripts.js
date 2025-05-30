@@ -5,6 +5,7 @@ document.querySelector(".editButton").style.display = 'none'
 const logoutButton = document.querySelector(".logout")
 logoutButton.style.display = 'none'
 
+const displayImageGalleryHomepage = () => {
 fetch("http://localhost:5678/api/works")
     .then(response => response.json())
     .then(data => {
@@ -19,6 +20,11 @@ fetch("http://localhost:5678/api/works")
         })
         document.querySelector(".gallery").innerHTML=display
     })
+}
+
+displayImageGalleryHomepage()
+window.displayImageGalleryHomepage = displayImageGalleryHomepage
+
 
     fetch("http://localhost:5678/api/categories")
     .then(response => response.json())

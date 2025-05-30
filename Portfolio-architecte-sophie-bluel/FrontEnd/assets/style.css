@@ -317,7 +317,7 @@ li:hover {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-.form-section div {
+#drop-zone {
 	background-color: rgba(232, 241, 246, 1);
 	height: 169px;
 	border-radius: 3px;
@@ -412,6 +412,30 @@ button {
 .form-section textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#formButton {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 100%;
+	color: white;
+	height: 38px;
+	text-align: center;
+	border-radius: 60px;
+	background-color: rgba(167, 167, 167, 1);
+	border: none;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 50%;
+}
+
+.positionButton{
+	display: flex;
+	justify-content: center;
 }
 
 input[type="submit"]{

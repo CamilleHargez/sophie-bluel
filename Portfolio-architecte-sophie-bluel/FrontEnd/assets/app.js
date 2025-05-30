@@ -9,7 +9,6 @@ let modalPage2 = document.querySelector('.page2')
 modalPage2.style.display = 'none'
 
 const form = document.querySelector("#addPhotoForm")
-// const fileInput = document.getElementById("addImg")
 
 const loadGalleryInModal = () => {
     const container = modal.querySelector('.modal-gallery')
@@ -94,18 +93,31 @@ const openModal = function (e) {
             console.log(key, value);
           }
         fetch("http://localhost:5678/api/works", {
-           method: 'post', 
+           method: 'POST', 
            body: formData,
            headers: { Authorization: `Bearer ${token}`}
         })
+        .then(function() {
+            fetch("http://localhost:5678/api/works")
+                .then(response => response.json())
+                .then(data => {
+                    let display = ""
+                    data.map(index=> {            
+                        display+= `
+                            <figure class="${index.category.id} projects" data-id="${index.id}">
+                                <img src="${index.imageUrl}" alt="${index.title}">
+                                <figcaption>${index.title}</figcaption>
+                            </figure>
+                        `
+                    })
+                    document.querySelector(".gallery").innerHTML=display
+                    resetModalForm()
+                    loadGalleryInModal()
+                })
     })
-    form.addEventListener('submit', closeModal)
-    form.addEventListener('submit', (e) => {
-        location.reload()
-    })
+    
 
     function resetModalForm() {
-        closeModal()
         document.getElementById("addPhotoForm").reset()
         const preview = document.querySelector(".previewImg");
             if (preview) {
@@ -116,23 +128,22 @@ const openModal = function (e) {
             }
     }
 
-    modal.querySelector('.js-modal-close').addEventListener('click', (e) => { 
+    modal.querySelector('.js-modal-close').addEventListener('click', () => { 
         resetModalForm()
         goBack()
     })
 
-    modal.addEventListener('click', (e) => { 
+    modal.addEventListener('click', () => { 
         resetModalForm()
         goBack()
     })
         
-}
+})}
 
 
 const closeModal = function (e) {
     if (modal === null) return
     if (previouslyFocusedElement !== null) previouslyFocusedElement.focus()
-    e.preventDefault()
     modal.style.display = 'none' 
     modal.setAttribute('aria-hidden', 'true') 
     modal.removeAttribute('aria-modal')
@@ -177,9 +188,9 @@ window.addEventListener('keydown', function (e){
 
 
 const imageInput = document.getElementById('image')
-// const formButton = document.getElementById("formButton")
-// const titleInput = document.getElementById("title")
-// const categorySelect = document.getElementById("category")
+const formButton = document.getElementById("formButton")
+const titleInput = document.getElementById("title")
+const categorySelect = document.getElementById("category")
 
 imageInput.addEventListener('change', function(e) {
     const dropZone = document.getElementById('drop-zone')
@@ -193,25 +204,29 @@ imageInput.addEventListener('change', function(e) {
         document.querySelector(".addImg").style.display = 'none'
         document.getElementById("textDropFile").style.display = 'none'
     }
+    checkFormValidity()
 }) 
 
-// function checkFormValidity() {
-//     const imageOk = imageInput.files && imageInput.files.length > 0
-//     const titleOk = titleInput.value !== ""
-//     const categoryOk = categorySelect.value !== "" 
+titleInput.addEventListener('change', function(e) {
+    checkFormValidity()
+}) 
 
-//     if (imageOk && titleOk && categoryOk) {
-//         e.preventDefault()
-//         console.log("bouton vert")
-//         formButton.style.backgroundColor = "rgba(29, 97, 84, 1)"
-//         formButton.disabled = false
-//     } else {
-//         e.preventDefault()
-//         console.log("bouton gris")
-//         formButton.style.backgroundColor = "rgba(167, 167, 167, 1)"
-//         formButton.disabled = true
-//     }
+categorySelect.addEventListener('change', function(e) {
+    checkFormValidity()
+}) 
 
-// }
+function checkFormValidity() {
+    const imageOk = imageInput.files && imageInput.files.length > 0
+    const titleOk = titleInput.value !== ""
+    const categoryOk = categorySelect.value !== "" 
+
+    if (imageOk && titleOk && categoryOk) {
+            formButton.disabled = false 
+            formButton.style.backgroundColor = "rgba(29, 97, 84, 1)"    
+        } else {
+        formButton.disabled = true
+        }
+
+}
 
 
