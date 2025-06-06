@@ -1,26 +1,28 @@
 document.querySelector(".login").style.fontWeight = 'bold'
 
-document.getElementById("login").addEventListener("submit", (event)=> {
+document.getElementById("login").addEventListener("submit", (event) => {
     event.preventDefault()
     const email = event.target.email.value
     const password = event.target.password.value
 
     fetch("http://localhost:5678/api/users/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, 
-        body: JSON.stringify({email, password})
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
     })
 
-    .then(response => response.json())
-    .then(response => {
-        let tokenValue = response.token
-        if (tokenValue) {
-            window.localStorage.setItem("token", tokenValue)
-            window.location.href = "index.html"
-        }
-        else {
-            alert("Erreur dans l’identifiant ou le mot de passe")
-        }
-    })
-    .catch(e => console.log("erreur api"))
+        .then(response => response.json())
+        .then(response => {
+            let tokenValue = response.token
+            if (tokenValue) {
+                window.localStorage.setItem("token", tokenValue)
+                window.location.href = "index.html"
+            }
+            else {
+                alert("Erreur dans l’identifiant ou le mot de passe")
+            }
+        })
+        .catch(error => {
+            console.error(error)
+        })
 })

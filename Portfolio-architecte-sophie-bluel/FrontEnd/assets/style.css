@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,34 +92,54 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	background-color: white;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
 }
 
@@ -62,11 +150,12 @@ body {
 	color: white;
 	display: flex;
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 	gap: 10px;
 }
 
-.fa-regular, .textEditionMode {
+.fa-regular,
+.textEditionMode {
 	background-color: transparent;
 }
 
@@ -75,11 +164,12 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
 
-h1{
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
@@ -88,25 +178,27 @@ h1{
 	color: #B1663C
 }
 
-h1 > span {
+h1>span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 10px;
 	letter-spacing: 0.1em;
-;
+	;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -125,16 +217,18 @@ li:hover {
 	color: black;
 	text-decoration: none;
 	position: relative;
-    left: -23px;
+	left: -23px;
 }
 
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -144,6 +238,7 @@ li:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -151,6 +246,7 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
@@ -159,7 +255,7 @@ li:hover {
 .editProjects {
 	display: flex;
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 	gap: 12px;
 }
 
@@ -191,7 +287,7 @@ li:hover {
 	width: 60%;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
-	height: 60%;
+	height: 672px;
 	background-color: rgba(255, 255, 255, 1);
 	border-radius: 10px;
 	padding: 20px;
@@ -202,13 +298,14 @@ li:hover {
 	justify-content: flex-end;
 }
 
-#titlemodal, #titlemodal2 {
+#titlemodal,
+#titlemodal2 {
 	color: black;
 	font-weight: 400;
 	font-size: 26px;
 	text-align: center;
 	margin-bottom: 6%;
-	}
+}
 
 .modal-gallery {
 	display: flex;
@@ -222,8 +319,8 @@ li:hover {
 .trashButton {
 	position: absolute;
 	top: 5px;
-    right: 10px;
-    background: black;
+	right: 10px;
+	background: black;
 	border-radius: 2px;
 	width: 18%;
 	height: 13%;
@@ -235,15 +332,16 @@ li:hover {
 	background-color: black;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 .separator {
 	color: #B3B3B3;
 	width: 70%;
 	margin-bottom: 5%;
-    margin-top: 8%;
+	margin-top: 8%;
 }
- 
+
 .addPhoto {
 	display: flex;
 	justify-content: center;
@@ -262,11 +360,16 @@ li:hover {
 	width: 35%;
 	border-radius: 30px;
 	font-size: 14px;
+	cursor: pointer;
 }
 
 .go-back {
 	display: flex;
 	justify-content: flex-start;
+}
+
+.fa-solid {
+	cursor: pointer;
 }
 
 .modalFormSection {
@@ -276,9 +379,9 @@ li:hover {
 
 .formModalPage2 {
 	text-align: left;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
 }
 
 #image {
@@ -292,7 +395,7 @@ li:hover {
 
 .imgicon {
 	font-size: 76px;
-    margin: 20px;
+	margin: 20px;
 }
 
 .addImg {
@@ -304,6 +407,7 @@ li:hover {
 	background-color: rgba(203, 214, 220, 1);
 	text-align: center;
 	color: rgba(48, 102, 133, 1);
+	cursor: pointer;
 }
 
 .previewImg {
@@ -311,10 +415,11 @@ li:hover {
 	width: auto;
 }
 
-#titleNewPhoto, #categoryNewPhoto {
+#titleNewPhoto,
+#categoryNewPhoto {
 	font-size: 1.2em;
-    border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 #drop-zone {
@@ -323,13 +428,13 @@ li:hover {
 	border-radius: 3px;
 	display: flex;
 	flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 	padding: 15px;
-  }
+}
 
 .editables {
-	width: 17%;
+	width: 100px;
 	position: relative;
 }
 
@@ -357,15 +462,15 @@ button {
 	border-color: #1D6154;
 	border-width: 1px;
 	display: flex;
-  	align-items: center;
-  	justify-content: center;
+	align-items: center;
+	justify-content: center;
 	padding-left: 15px;
 	padding-right: 15px;
 }
 
 .active {
 	color: white;
-	background-color:#1D6154;
+	background-color: #1D6154;
 }
 
 
@@ -381,25 +486,30 @@ button {
 	width: 100%;
 
 }
+
 .form-section {
 	width: 50%;
 	margin: auto;
 }
-.form-section > * {
+
+.form-section>* {
 	text-align: center;
 
 }
+
 .form-section h2 {
 	margin-bottom: 20px;
 }
+
 .form-section form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-.form-section input, .form-section select {
+.form-section input,
+.form-section select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
@@ -409,6 +519,7 @@ button {
 .form-section label {
 	margin: 2em 0 1em 0;
 }
+
 .form-section textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -426,33 +537,34 @@ button {
 	background-color: rgba(167, 167, 167, 1);
 	border: none;
 	display: flex;
-  	align-items: center;
-  	justify-content: center;
+	align-items: center;
+	justify-content: center;
 	padding-left: 15px;
 	padding-right: 15px;
 	width: 50%;
+	cursor: pointer;
 }
 
-.positionButton{
+.positionButton {
 	display: flex;
 	justify-content: center;
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
 }
 
 .forgotPassword {
 	color: black;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 	font-weight: 500;
 	font-size: 14px;
 }
@@ -462,4 +574,3 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
-
