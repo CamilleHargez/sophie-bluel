@@ -74,7 +74,7 @@
 			<div class="page2">
 				<div class="go-back"><i class="fa-solid fa-arrow-left"></i></div>
 				<h2 id="titlemodal2">Ajout photo</h2>
-				<section id="contact" class="form-section">
+				<section id="formsection" class="form-section">
 					<form action="#" method="post" id="addPhotoForm">
 						<div id="drop-zone">
 							<i class="fa-regular fa-image fa-2xl imgicon" style="color: #b9c5cc;"></i>
@@ -85,8 +85,8 @@
 						<label for="title">Titre</label>
 						<input type="text" name="title" id="title">
 						<label for="category">Catégorie</label>
-						<select type="select" name="category" id="category">
-							<option value="null"></option>
+						<select name="category" id="category" required>
+							<option value="" label="Veuillez choisir une catégorie"></option>
 							<option value="1">Objets</option>
 							<option value="2">Appartements</option>
 							<option value="3">Hotels & restaurants</option>
