@@ -1,5 +1,6 @@
 document.querySelector(".login").style.fontWeight = 'bold'
 
+// Envoyer les données du form à l'API et gérer la réponse selon le résultat 
 document.getElementById("login").addEventListener("submit", (event) => {
     event.preventDefault()
     const email = event.target.email.value

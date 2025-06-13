@@ -5,6 +5,9 @@ document.querySelector(".editButton").style.display = 'none'
 const logoutButton = document.querySelector(".logout")
 logoutButton.style.display = 'none'
 
+/**
+ * Fonction pour afficher les projets sur la homepage
+ */
 const displayImageGalleryHomepage = () => {
     fetch("http://localhost:5678/api/works")
         .then(response => response.json())
